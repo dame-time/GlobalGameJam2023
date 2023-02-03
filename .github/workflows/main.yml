@@ -22,11 +22,11 @@ jobs:
           - Android # Build an Android player.
           - WebGL # WebGL.
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
           lfs: true
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.2.4
         with:
           path: ${{ matrix.projectPath }}/Library
           key:
@@ -36,7 +36,7 @@ jobs:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
             Library-
-      - uses: game-ci/unity-test-runner@v2
+      - uses: game-ci/unity-test-runner@v2.1.1
         id: testRunner
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -49,7 +49,7 @@ jobs:
         with:
           name: Test results (all modes)
           path: ${{ steps.testRunner.outputs.artifactsPath }}
-      - uses: game-ci/unity-builder@v2
+      - uses: game-ci/unity-builder@v2.1.2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -79,11 +79,11 @@ jobs:
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
           lfs: true
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.2.4
         with:
           path: ${{ matrix.projectPath }}/Library
           key:
@@ -93,7 +93,7 @@ jobs:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
             Library-
-      - uses: game-ci/unity-builder@v2
+      - uses: game-ci/unity-builder@v2.1.2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -122,12 +122,12 @@ jobs:
           - StandaloneOSX # Build a macOS standalone.
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
           lfs: true
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.2.4
         with:
           path: ${{ matrix.projectPath }}/Library
           key:
@@ -138,7 +138,7 @@ jobs:
             Library-${{ matrix.projectPath }}-
             Library-
 
-      - uses: game-ci/unity-builder@v2
+      - uses: game-ci/unity-builder@v2.1.2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
