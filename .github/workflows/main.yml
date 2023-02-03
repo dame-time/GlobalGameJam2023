@@ -12,8 +12,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - test-project
         unityVersion:
           - 2021.3.18f1
         targetPlatform:
@@ -85,7 +83,7 @@ jobs:
           lfs: true
       - uses: actions/cache@v3.2.4
         with:
-          path: ${{ matrix.projectPath }}/Library
+          path: Library
           key:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{
             hashFiles(matrix.projectPath) }}
@@ -129,7 +127,7 @@ jobs:
 
       - uses: actions/cache@v3.2.4
         with:
-          path: ${{ matrix.projectPath }}/Library
+          path: Library
           key:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{
             hashFiles(matrix.projectPath) }}
@@ -152,4 +150,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Build
-          path: build
+          path: Build
