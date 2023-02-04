@@ -19,14 +19,22 @@ namespace Generator.Obstacles
     {
         [SerializeField] private List<Obstacle> obstacles;
 
+        [SerializeField] private float XObstacleOffset = 0.0f;
+        [SerializeField] private float YObstacleOffset = 2.0f;
+        [SerializeField] private float ZObstacleOffset = 0.0f;
+
+        [SerializeField] private int seed = 1;
+
         private TerrainGenerator terrainGenerator;
 
         private Dictionary<string, Vector3> busyPositions;
 
         private void Start() 
         {
-            terrainGenerator = FindObjectOfType<TerrainGenerator>();
+            terrainGenerator = GetComponent<TerrainGenerator>();
             busyPositions = new Dictionary<string, Vector3>();
+
+            Random.InitState(seed);
 
             GenerateObstacles();
         }
@@ -36,28 +44,36 @@ namespace Generator.Obstacles
             var folder = FileSystemReader.GetPathFromFolderDepth(FindObjectOfType<GameManager>().CurrentLevel);
             var filesInFolder = FileSystemReader.GetFilesInFolder(folder);
 
-            foreach (var file in filesInFolder) 
+            for (int i = 0; i < terrainGenerator.GeneratedTiles.Count; i++)
             {
+                if (i >= filesInFolder.Count)
+                    break;
+                    
+                var file = filesInFolder[i];
                 var splittedFile = file.Split(".");
-                
-                var obstacleHolder = PickRandomTileFromTerrain();
-                // Instantiate(obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle, new Vector3(0, 0, 0), Quaternion.identity);
+
+                var freeTiles = terrainGenerator.GeneratedTiles.Where(e => !e.isBusy).ToList();
+                if (freeTiles.Count == 0)
+                    break;
+
+                var randomTile = freeTiles[Random.Range(0, freeTiles.Count)];
+
+                var obstacleHolder = randomTile.tile;
+                var obstaclePosition = ComputeObstaclePosition(obstacleHolder);
+
+                var obstacle = Instantiate(obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle, obstaclePosition, Quaternion.identity);
+                obstacle.transform.parent = obstacleHolder.transform;
+
+                randomTile.isBusy = true;
             }
         }
-
-        private GameObject PickRandomTileFromTerrain() => terrainGenerator.GeneratedTiles[Random.Range(0, terrainGenerator.GeneratedTiles.Count)];
     
-        private Vector3 ComputeObstaclePosition(Tile tile) 
+        private Vector3 ComputeObstaclePosition(GameObject tile) 
         {
-            var tilePosition = tile.tile.transform.position;
-            var tileScale = tile.tile.transform.localScale;
+            var tilePosition = tile.transform.position;
+            var tileScale = tile.transform.localScale;
 
-            var obstacleOffset = new Vector3(
-                                                Random.Range(-tileScale.x, tileScale.x), 
-                                                Random.Range(-tileScale.y, tileScale.y),
-                                                Random.Range(-tileScale.z, tileScale.z)
-                                            );
-            var obstaclePosition = new Vector3(tilePosition.x + tileScale.x / 2, tilePosition.y + tileScale.y / 2, tilePosition.z + tileScale.z / 2);
+            var obstaclePosition = new Vector3(tilePosition.x + XObstacleOffset, tileScale.y + YObstacleOffset, ZObstacleOffset);
 
             return obstaclePosition;
         }

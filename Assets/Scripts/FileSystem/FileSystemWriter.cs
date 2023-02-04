@@ -13,7 +13,7 @@ namespace Core.FileSystem
 
             // Check if file exists and if it does, delete it then create a new one with the name and content provided
             if (System.IO.File.Exists(endPath))
-                System.IO.File.Delete(endPath);
+                return;
 
             System.IO.File.WriteAllText(endPath, content);
         }

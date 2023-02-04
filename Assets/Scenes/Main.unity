@@ -288,6 +288,9 @@ MonoBehaviour:
     key: meta
   - obstacle: {fileID: 6614421118495832443, guid: c872cac8c59d242a18c15d3036b28d42, type: 3}
     key: txt
+  XObstacleOffset: 0
+  YObstacleOffset: 2
+  ZObstacleOffset: 0
 --- !u!1 &1196625167
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,3 +419,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80d019877425481ab787124ffc7db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPathLength: 50
+  minPathLength: 20

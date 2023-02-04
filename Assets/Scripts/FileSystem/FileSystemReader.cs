@@ -50,9 +50,9 @@ namespace Core.FileSystem
             {
                 fileContent = System.IO.File.ReadAllText(filePath);
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
-                Debug.Log(e);
+                return string.Empty;
             }
 
             return fileContent;
