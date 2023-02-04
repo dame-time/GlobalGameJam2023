@@ -16,11 +16,7 @@ namespace Core
 
         private IEnumerator TransitionToNextLevel()
         {
-            LevelTransitionEffect.instance.StartTransition();
-
-            yield return new WaitForSeconds(0.8f);
-
-            GameManager.Instance.LoadNextLevel();
+            yield return LevelTransitionEffect.instance.StartTransition(GameManager.Instance.LoadNextLevel, true);
         }
 
     }

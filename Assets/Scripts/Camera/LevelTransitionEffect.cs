@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class LevelTransitionEffect : PostProcessCamera
@@ -10,18 +11,38 @@ public class LevelTransitionEffect : PostProcessCamera
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(this);
     }
 
-    public void StartTransition()
+    public IEnumerator StartTransition()
     {
         isEnable = true;
 
-        float time = 1.0f;
+        float time = 0.75f;
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(DOTween.To(() => progressTransition, x => progressTransition = x, 1, time))
+        yield return sequence.Append(DOTween.To(() => progressTransition, x => progressTransition = x, 1, time))
                 .Append(DOTween.To(() => progressTransition, x => progressTransition = x, 0, time))
-                .AppendCallback(() => { isEnable = false; });
+                .AppendCallback(() => { isEnable = false; }).WaitForCompletion();
+    }
+
+    public IEnumerator StartTransition(TweenCallback callback, bool destroyAtEnd = false)
+    {
+        isEnable = true;
+
+        float time = 0.75f;
+
+        Sequence sequence = DOTween.Sequence();
+        yield return sequence.Append(DOTween.To(() => progressTransition, x => progressTransition = x, 1, time))
+                .AppendCallback(callback)
+                .Append(DOTween.To(() => progressTransition, x => progressTransition = x, 0, time))
+                .AppendCallback(() => 
+                { 
+                    if(destroyAtEnd)
+                    {
+                        Destroy(gameObject);
+                    }
+                }).WaitForCompletion();
     }
 
     protected override void OnRenderImage(RenderTexture source, RenderTexture destination)
