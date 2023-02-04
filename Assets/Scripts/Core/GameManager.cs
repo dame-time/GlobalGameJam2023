@@ -125,6 +125,7 @@ namespace Core
             virtualCamera = playerCamera.AddComponent<CinemachineVirtualCamera>();
             virtualCamera.Follow = player.transform;
             virtualCamera.AddCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(cinemachineXOffset, cinemachineYOffset, 0);
+            virtualCamera.m_Lens.FieldOfView = 49;
         }
 
         public void GameOver()

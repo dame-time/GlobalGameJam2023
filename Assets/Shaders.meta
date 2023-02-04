@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4fa24c07dd00e114bb0708cceecdccce
+=======
+guid: 586ca69adae2248989ac9e35710d47b4
+>>>>>>> d5a67ed (Implemented Menu interface)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
