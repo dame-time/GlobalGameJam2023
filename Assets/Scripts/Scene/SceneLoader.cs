@@ -5,12 +5,8 @@ using UnityEngine.SceneManagement;
 
 namespace Core.SceneManagement
 {
-    public class SceneLoader : MonoBehaviour
+    public class SceneLoader
     {
-        public Scene LoadNewScene()
-        {
-            var scene = SceneManager.CreateScene("New Scene");
-            return scene;
-        }
+        public static void LoadNewScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

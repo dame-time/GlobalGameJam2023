@@ -30,8 +30,6 @@ namespace Core.FileSystem
                     newPath = Application.dataPath;
                 }
 
-                Debug.Log(newPath);
-
                 return newPath;
             }
         }

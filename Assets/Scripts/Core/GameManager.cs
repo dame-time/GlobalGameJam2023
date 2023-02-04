@@ -1,7 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Core.SceneManagement;
+using Core.UserInterface;
 using Patterns;
 using UnityEngine;
 using Utils;
@@ -18,6 +19,8 @@ namespace Core
 
         [SerializeField] private float cinemachineXOffset = 1.5f;
         [SerializeField] private float cinemachineYOffset = 1.5f;
+
+        private UI uiObject;
 
         private List<string> folderStructure;
         private int currentLevel;
@@ -41,6 +44,12 @@ namespace Core
 
         private void Awake() 
         {
+            if (FindObjectsOfType(typeof(GameManager)).Length > 1)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+
             folderStructure = FileSystem.FileSystemReader.GetFolderStructure();
 
             defaultPaths = new List<string>();
@@ -50,6 +59,9 @@ namespace Core
             currentFolder = folderStructure[currentLevel];
 
             GenerateAllConfigurationFiles();
+
+            uiObject = FindObjectOfType<UI>();
+            uiObject.SetPathText(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel));
         }
 
         private void PrecomputePathsWhereConfigDoesntExist()
@@ -85,8 +97,20 @@ namespace Core
         {
             if (currentLevel < folderStructure.Count - 1)
                 currentLevel++;
+            else
+            {
+                PlayWinScreen();
+                Debug.Log("You won!");
+                return;
+            }
 
             currentFolder = folderStructure[currentLevel];
+
+            SceneLoader.LoadNewScene();
+
+            uiObject.SetPathText(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel));
+
+            Debug.Log("Current Folder: " + currentFolder);
             // Debug.Log(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel));
             // foreach (var file in FileSystem.FileSystemReader.GetFilesInFolder(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel)))
             //     Debug.Log(file);
@@ -106,6 +130,11 @@ namespace Core
         public void GameOver()
         {
             player.transform.position = playerStartingPosition;
+        }
+
+        public void PlayWinScreen()
+        {
+            // SceneLoader.LoadWinScreen();
         }
     }
 }
