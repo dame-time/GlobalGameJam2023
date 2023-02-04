@@ -34,7 +34,7 @@ namespace Generator.Obstacles
             terrainGenerator = GetComponent<TerrainGenerator>();
             busyPositions = new Dictionary<string, Vector3>();
 
-            Random.InitState(seed);
+            // Random.InitState(seed);
 
             GenerateObstacles();
         }

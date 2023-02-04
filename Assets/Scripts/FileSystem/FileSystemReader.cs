@@ -7,7 +7,31 @@ namespace Core.FileSystem
 {
     public sealed class FileSystemReader
     {
-        public static string ApplicationPath => Application.dataPath;
+        public static string ApplicationPath 
+        {
+            get 
+            {
+                var path = Application.dataPath;
+                var newPath = string.Empty;
+
+                if (Application.platform == RuntimePlatform.OSXPlayer)
+                {
+                    var splittedPath = path.Split('/');
+                    for (var i = 0; i < splittedPath.Length - 2; i++)
+                        newPath += splittedPath[i] + "/";
+                }
+                else if (Application.platform == RuntimePlatform.WindowsPlayer)
+                {
+                    var splittedPath = path.Split('\\');
+                    for (var i = 0; i < splittedPath.Length - 1; i++)
+                        newPath += splittedPath[i] + "\\";
+                }
+
+                Debug.Log(newPath);
+
+                return newPath;
+            }
+        }
 
         public static List<string> GetFolderStructure() {
             var folderStructure = new List<string>();

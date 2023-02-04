@@ -9,7 +9,7 @@ namespace Core.FileSystem
     {
         public static void WriteToFile(string filePath, string content) 
         {
-            string endPath = filePath + Path.DirectorySeparatorChar + "levelConfiguration.txt";
+            string endPath = filePath + "levelConfiguration.txt";
 
             // Check if file exists and if it does, delete it then create a new one with the name and content provided
             if (System.IO.File.Exists(endPath))
