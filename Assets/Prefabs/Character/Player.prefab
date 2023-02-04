@@ -551,7 +551,7 @@ MonoBehaviour:
   _maxFallSpeed: 120
   _jumpHeight: 25
   _jumpApexThreshold: 10
-  _coyoteTimeThreshold: 0.1
+  _coyoteTimeThreshold: 0.6
   _jumpBuffer: 0.1
   _jumpEndEarlyGravityModifier: 3
   _freeColliderIterations: 10
@@ -568,7 +568,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.12194538}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -579,7 +579,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.2438908}
   m_EdgeRadius: 0
 --- !u!1 &304708076242504458
 GameObject:
