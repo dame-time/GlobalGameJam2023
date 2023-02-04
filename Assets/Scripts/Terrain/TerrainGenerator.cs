@@ -50,6 +50,8 @@ namespace Generator.Terrain
                 var generatedTile = Instantiate(tiles.Where(e => e.key.Contains(path[i])).ToList().First().tile, new Vector3(i * 5, 0, 0), Quaternion.identity);
                 generatedTiles.Add(new TileStatus() { isBusy = false, tile = generatedTile });
             }
+
+            gameManager.LoadPlayer();
         }
     }   
 }

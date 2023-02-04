@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: cb17229ce4a15aa44ae42269b91777e2
+=======
+guid: 60879857e097649cd87eb9efda41652a
+>>>>>>> acd7ec7 (Implemented cinemachine logic)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

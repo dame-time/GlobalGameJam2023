@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using Utils;
 
@@ -11,15 +12,31 @@ namespace Core
         [SerializeField] private int maxPathLength = 50;
         [SerializeField] private int minPathLength = 20;
 
+        [SerializeField] private GameObject playerPrefab;
+        [SerializeField] private Vector3 playerStartingPosition;
+
+        [SerializeField] private float cinemachineXOffset = 1.5f;
+        [SerializeField] private float cinemachineYOffset = 1.5f;
+
         private List<string> folderStructure;
         private int currentLevel;
         private string currentFolder;
 
         private List<string> defaultPaths;
 
+        private GameObject player;
+        private GameObject playerCamera;
+
+        private CinemachineVirtualCamera virtualCamera;
+
         public int CurrentLevel => currentLevel;
         public string CurrentFolder => currentFolder;
         public List<string> DefaultPaths => defaultPaths;
+
+        public GameObject PlayerPrefab => playerPrefab;
+        public Vector3 PlayerStartingPosition => playerStartingPosition;
+
+        public GameObject Player => player;
 
         private void Awake() 
         {
@@ -72,6 +89,17 @@ namespace Core
             // Debug.Log(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel));
             // foreach (var file in FileSystem.FileSystemReader.GetFilesInFolder(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel)))
             //     Debug.Log(file);
+        }
+
+        public void LoadPlayer() 
+        {
+            player = Instantiate(playerPrefab, playerStartingPosition, Quaternion.identity);
+            playerCamera = new GameObject("Player Camera");
+            playerCamera.transform.position = Camera.main.transform.position;
+
+            virtualCamera = playerCamera.AddComponent<CinemachineVirtualCamera>();
+            virtualCamera.Follow = player.transform;
+            virtualCamera.AddCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(cinemachineXOffset, cinemachineYOffset, 0);
         }
     }
 }
