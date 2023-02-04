@@ -49,8 +49,6 @@ namespace TarodevController {
                 _anim.SetTrigger(GroundedKey);
                 _LandingSource.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
 
-                _anim3D.SetBool("Run", false);
-                _anim3D.SetBool("Idle", true);
                 _anim3D.SetBool("Jump", false);
             }
 
@@ -61,10 +59,6 @@ namespace TarodevController {
                 _anim.ResetTrigger(GroundedKey);
 
                 _source.PlayOneShot(_jumps[Random.Range(0, _jumps.Length)]);
-
-                _anim3D.SetBool("Run", false);
-                _anim3D.SetBool("Idle", false);
-                _anim3D.SetBool("Jump", true);
 
                 // Only play particles when grounded (avoid coyote)
                 if (_player.Grounded) 
@@ -104,6 +98,13 @@ namespace TarodevController {
             {
                 _anim3D.SetBool("Run", false);
                 _anim3D.SetBool("Idle", true);
+            }
+
+            if (_player.JumpingThisFrame)
+            {
+                _anim3D.SetBool("Run", false);
+                _anim3D.SetBool("Idle", false);
+                _anim3D.SetBool("Jump", true);
             }
 
             _movement = _player.RawMovement; // Previous frame movement is more valuable
