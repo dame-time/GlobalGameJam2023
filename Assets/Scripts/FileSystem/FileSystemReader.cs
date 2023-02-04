@@ -22,9 +22,9 @@ namespace Core.FileSystem
                 }
                 else if (Application.platform == RuntimePlatform.WindowsPlayer)
                 {
-                    var splittedPath = path.Split('\\');
+                    var splittedPath = path.Split('/');
                     for (var i = 0; i < splittedPath.Length - 1; i++)
-                        newPath += splittedPath[i] + "\\";
+                        newPath += splittedPath[i] + "/";
                 }
                 else {
                     newPath = Application.dataPath;
@@ -36,7 +36,7 @@ namespace Core.FileSystem
 
         public static List<string> GetFolderStructure() {
             var folderStructure = new List<string>();
-            var folders = ApplicationPath.Split(Path.DirectorySeparatorChar).ToList();
+            var folders = ApplicationPath.Split('/').ToList();
 
             foreach (var folder in folders)
                 folderStructure.Add(folder);

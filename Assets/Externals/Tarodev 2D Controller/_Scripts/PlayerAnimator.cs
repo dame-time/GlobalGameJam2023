@@ -10,6 +10,7 @@ namespace TarodevController {
     public class PlayerAnimator : MonoBehaviour 
     {
         [SerializeField] private Animator _anim;
+        [SerializeField] private Animator _anim3D;
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioSource _LandingSource;
         [SerializeField] private LayerMask _groundMask;
@@ -29,7 +30,8 @@ namespace TarodevController {
 
         void Awake() => _player = GetComponentInParent<IPlayerController>();
 
-        void Update() {
+        void Update() 
+        {
             if (_player == null) return;
 
             // Flip the sprite
@@ -46,6 +48,10 @@ namespace TarodevController {
             if (_player.LandingThisFrame) {
                 _anim.SetTrigger(GroundedKey);
                 _LandingSource.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
+
+                _anim3D.SetBool("Run", false);
+                _anim3D.SetBool("Idle", true);
+                _anim3D.SetBool("Jump", false);
             }
 
             // Jump effects
@@ -55,6 +61,10 @@ namespace TarodevController {
                 _anim.ResetTrigger(GroundedKey);
 
                 _source.PlayOneShot(_jumps[Random.Range(0, _jumps.Length)]);
+
+                _anim3D.SetBool("Run", false);
+                _anim3D.SetBool("Idle", false);
+                _anim3D.SetBool("Jump", true);
 
                 // Only play particles when grounded (avoid coyote)
                 if (_player.Grounded) 
@@ -83,6 +93,17 @@ namespace TarodevController {
             if (groundHit && groundHit.transform.TryGetComponent(out SpriteRenderer r)) {
                 _currentGradient = new ParticleSystem.MinMaxGradient(r.color * 0.9f, r.color * 1.2f);
                 SetColor(_moveParticles);
+            }
+
+            if(_player.Input.X != 0 && _playerGrounded)
+            {
+                _anim3D.SetBool("Run", true);
+                _anim3D.SetBool("Idle", false);
+            }
+            else if (_player.Input.X == 0 && _playerGrounded)
+            {
+                _anim3D.SetBool("Run", false);
+                _anim3D.SetBool("Idle", true);
             }
 
             _movement = _player.RawMovement; // Previous frame movement is more valuable
