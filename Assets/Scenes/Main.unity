@@ -549,9 +549,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - obstacle: {fileID: 5074865959785185443, guid: efa1956a4859d0b43b9638ff95be01c1, type: 3}
-    key: meta
+    key: jpg
+  - obstacle: {fileID: 2891699565816204000, guid: 9367ad8c06ba21749b8314116edf9021, type: 3}
+    key: mp4
   - obstacle: {fileID: 4705096774974154889, guid: 1959e59a6cb18c24aa375bbd7e1feec2, type: 3}
-    key: txt
+    key: pdf
+  - obstacle: {fileID: 8508231944933405899, guid: 84d3a5c304c98fd4cb6b19d180a6b548, type: 3}
+    key: docx
+  - obstacle: {fileID: 1051475911173828545, guid: c872cac8c59d242a18c15d3036b28d42, type: 3}
+    key: png
+  - obstacle: {fileID: 5074865959785185443, guid: 41702dafc1c345c4597bf503fbe6f723, type: 3}
+    key: zip
   XObstacleOffset: 0
   YObstacleOffset: 2
   ZObstacleOffset: 0
@@ -634,7 +642,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196625167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0534658, y: 2.503505, z: -18.121893}
+  m_LocalPosition: {x: -6.6700006, y: 0.84000015, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
