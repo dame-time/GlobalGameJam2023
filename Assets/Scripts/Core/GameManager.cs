@@ -101,5 +101,10 @@ namespace Core
             virtualCamera.Follow = player.transform;
             virtualCamera.AddCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(cinemachineXOffset, cinemachineYOffset, 0);
         }
+
+        public void GameOver()
+        {
+            player.transform.position = playerStartingPosition;
+        }
     }
 }

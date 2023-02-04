@@ -36,7 +36,8 @@ namespace Generator.Terrain
             GenerateTerrain();
         }
 
-        public void GenerateTerrain() {
+        public void GenerateTerrain() 
+        {
             generatedTiles = new List<TileStatus>();
 
             var fileContent = FileSystemReader.ReadFile(FileSystemReader.GetPathFromFolderDepth(FindObjectOfType<GameManager>().CurrentLevel) + "levelConfiguration.txt");
