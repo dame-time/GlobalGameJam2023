@@ -284,9 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - obstacle: {fileID: 6866962003479886520, guid: fb554745abc814c35a627b880f82974c, type: 3}
+  - obstacle: {fileID: 5074865959785185443, guid: efa1956a4859d0b43b9638ff95be01c1, type: 3}
     key: meta
-  - obstacle: {fileID: 6614421118495832443, guid: c872cac8c59d242a18c15d3036b28d42, type: 3}
+  - obstacle: {fileID: 4705096774974154889, guid: 1959e59a6cb18c24aa375bbd7e1feec2, type: 3}
     key: txt
   XObstacleOffset: 0
   YObstacleOffset: 2

@@ -61,8 +61,18 @@ namespace Generator.Obstacles
                 var obstacleHolder = randomTile.tile;
                 var obstaclePosition = ComputeObstaclePosition(obstacleHolder);
 
-                var obstacle = Instantiate(obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle, obstaclePosition, Quaternion.identity);
-                obstacle.transform.parent = obstacleHolder.transform;
+                Debug.Log(splittedFile[splittedFile.Length - 1]);
+
+                var obstacleIsContained = obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().Count > 0;
+                if (obstacleIsContained)
+                {
+                    var obstacle = Instantiate(obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle, obstaclePosition, Quaternion.identity);
+                    obstacle.transform.parent = obstacleHolder.transform;
+                }
+                else 
+                {
+                    Debug.Log("TODO: Generate default obstacle");
+                }
 
                 randomTile.isBusy = true;
             }

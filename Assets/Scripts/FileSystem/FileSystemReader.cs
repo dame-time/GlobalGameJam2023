@@ -26,6 +26,9 @@ namespace Core.FileSystem
                     for (var i = 0; i < splittedPath.Length - 1; i++)
                         newPath += splittedPath[i] + "\\";
                 }
+                else {
+                    newPath = Application.dataPath;
+                }
 
                 Debug.Log(newPath);
 
