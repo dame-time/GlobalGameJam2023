@@ -1,7 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Core.SceneManagement;
 using Patterns;
 using UnityEngine;
 using Utils;
@@ -41,6 +41,12 @@ namespace Core
 
         private void Awake() 
         {
+            if (FindObjectsOfType(typeof(GameManager)).Length > 1)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+
             folderStructure = FileSystem.FileSystemReader.GetFolderStructure();
 
             defaultPaths = new List<string>();
@@ -87,6 +93,10 @@ namespace Core
                 currentLevel++;
 
             currentFolder = folderStructure[currentLevel];
+
+            SceneLoader.LoadNewScene();
+
+            Debug.Log("Current Folder: " + currentFolder);
             // Debug.Log(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel));
             // foreach (var file in FileSystem.FileSystemReader.GetFilesInFolder(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel)))
             //     Debug.Log(file);

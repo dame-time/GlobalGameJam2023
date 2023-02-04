@@ -4,6 +4,7 @@ using UnityEngine;
 using Core.FileSystem;
 using Core;
 using System.Linq;
+using Core.SceneManagement;
 
 namespace Generator.Terrain
 {
@@ -46,9 +47,17 @@ namespace Generator.Terrain
 
             var path = fileContent.ToCharArray().ToList();
 
+            if (path.Count > 0 && path[0] != '*')
+                path.Insert(0, '*');
+
+            if (path.Count > 0 && path[path.Count - 1] != '!')
+                path.Add('!');
+
             for (int i = 0; i < path.Count; i++)
             {
-                var generatedTile = Instantiate(tiles.Where(e => e.key.Contains(path[i])).ToList().First().tile, new Vector3(i * 5, 0, 0), Quaternion.identity);
+                var tileToGenerate = tiles.Where(e => e.key.Contains(path[i])).ToList().First().tile;
+
+                var generatedTile = Instantiate(tileToGenerate, new Vector3(i * 5, 0, 0), tileToGenerate.transform.rotation);
                 generatedTiles.Add(new TileStatus() { isBusy = false, tile = generatedTile });
             }
 
