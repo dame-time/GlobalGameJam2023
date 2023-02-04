@@ -7,7 +7,7 @@ public class PlatformFall : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.IsTouchingLayers(3))
+        if (collision.gameObject.layer == 3)
             StartCoroutine(WaitAndFall());
             
     }
