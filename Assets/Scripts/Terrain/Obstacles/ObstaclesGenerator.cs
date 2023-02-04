@@ -61,8 +61,6 @@ namespace Generator.Obstacles
                 var obstacleHolder = randomTile.tile;
                 var obstaclePosition = ComputeObstaclePosition(obstacleHolder);
 
-                Debug.Log(splittedFile[splittedFile.Length - 1]);
-
                 var obstacleIsContained = obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().Count > 0;
                 if (obstacleIsContained)
                 {

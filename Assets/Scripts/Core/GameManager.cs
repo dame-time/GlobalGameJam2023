@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Patterns;
 using UnityEngine;
 using Utils;
 
 namespace Core 
 {
-    public sealed class GameManager : MonoBehaviour
+    public sealed class GameManager : Singleton<GameManager>
     {
         [SerializeField] private int maxPathLength = 50;
         [SerializeField] private int minPathLength = 20;
