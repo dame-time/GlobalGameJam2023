@@ -14221,11 +14221,7 @@ Transform:
   - {fileID: 6059159193877528186}
   - {fileID: 2735530753111177443}
   - {fileID: 6649328910652523724}
-<<<<<<< HEAD
   - {fileID: 1866464829006009503}
-=======
-  - {fileID: 94091427163867182}
->>>>>>> f163f87 (Added BG for ambient)
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -15238,7 +15234,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &4962802090753006577
+--- !u!1001 &2635685602987130731
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
