@@ -28,6 +28,7 @@ namespace Core
         private List<string> folderStructure;
         private int currentLevel;
         private string currentFolder;
+        private string upFolder;
 
         private List<string> defaultPaths;
 
@@ -156,6 +157,11 @@ namespace Core
         public void PlayWinScreen()
         {
             // SceneLoader.LoadWinScreen();
+        }
+
+        public string GetUpFolder()
+        {
+            return currentLevel < folderStructure.Count ? folderStructure[currentLevel + 1] : "";
         }
     }
 }
