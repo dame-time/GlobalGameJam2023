@@ -23,7 +23,7 @@ public class DestroyFile : MonoBehaviour
         this.path = path;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(!exists)
         {
