@@ -75,6 +75,8 @@ namespace Core
         private void Update() {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                pauseMenuButtons = FindObjectOfType<PauseMenuButtons>();
+                
                 pauseMenuButtons.gameObject.SetActive(!pauseMenuButtons.gameObject.activeSelf);
                 if (pauseMenuButtons.gameObject.activeSelf)
                     Time.timeScale = 0;
