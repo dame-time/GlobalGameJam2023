@@ -56,7 +56,8 @@ namespace Generator.Obstacles
                 if (freeTiles.Count == 0)
                     break;
 
-                var randomTile = freeTiles[Random.Range(0, freeTiles.Count)];
+                var index = Random.Range(0, freeTiles.Count);
+                var randomTile = freeTiles[index];
 
                 var obstacleHolder = randomTile.tile;
                 var obstaclePosition = ComputeObstaclePosition(obstacleHolder);
@@ -66,13 +67,25 @@ namespace Generator.Obstacles
                 {
                     var obstacle = Instantiate(obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle, obstaclePosition, Quaternion.identity);
                     obstacle.transform.parent = obstacleHolder.transform;
+                    obstacle.transform.localScale = obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle.transform.localScale;
                 }
                 else 
                 {
-                    Debug.Log("TODO: Generate default obstacle");
+                    Debug.Log(splittedFile[splittedFile.Length - 1]);
                 }
 
-                randomTile.isBusy = true;
+                for (int k = 0; k < terrainGenerator.GeneratedTiles.Count; k++)
+                {
+                    var tile = terrainGenerator.GeneratedTiles[k];
+                    if (tile.tile.transform.position == randomTile.tile.transform.position)
+                    {
+                        TileStatus t;
+                        t.isBusy = true;
+                        t.tile = randomTile.tile;
+                        terrainGenerator.GeneratedTiles[k] = t;
+                        break;
+                    }
+                }
             }
         }
     
@@ -81,7 +94,7 @@ namespace Generator.Obstacles
             var tilePosition = tile.transform.position;
             var tileScale = tile.transform.localScale;
 
-            var obstaclePosition = new Vector3(tilePosition.x + XObstacleOffset, tileScale.y + YObstacleOffset, ZObstacleOffset);
+            var obstaclePosition = new Vector3(tile.transform.position.x + XObstacleOffset, YObstacleOffset, ZObstacleOffset);
 
             return obstaclePosition;
         }

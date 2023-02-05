@@ -1638,20 +1638,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - obstacle: {fileID: 5074865959785185443, guid: efa1956a4859d0b43b9638ff95be01c1, type: 3}
+  - obstacle: {fileID: 7616194662952159753, guid: 08c1f9b7a04d44c608f194d08d86f259, type: 3}
     key: jpg
-  - obstacle: {fileID: 2891699565816204000, guid: 9367ad8c06ba21749b8314116edf9021, type: 3}
+  - obstacle: {fileID: 3536475187783933826, guid: 29a62fed0c0194a4086d692e4dbbb45a, type: 3}
     key: mp4
-  - obstacle: {fileID: 4705096774974154889, guid: 1959e59a6cb18c24aa375bbd7e1feec2, type: 3}
+  - obstacle: {fileID: 7616194662952159753, guid: 08c1f9b7a04d44c608f194d08d86f259, type: 3}
     key: pdf
-  - obstacle: {fileID: 8508231944933405899, guid: 84d3a5c304c98fd4cb6b19d180a6b548, type: 3}
-    key: docx
-  - obstacle: {fileID: 1051475911173828545, guid: c872cac8c59d242a18c15d3036b28d42, type: 3}
+  - obstacle: {fileID: 8684383913121849567, guid: fb554745abc814c35a627b880f82974c, type: 3}
+    key: txt
+  - obstacle: {fileID: 7616194662952159753, guid: 08c1f9b7a04d44c608f194d08d86f259, type: 3}
     key: png
   - obstacle: {fileID: 5074865959785185443, guid: 41702dafc1c345c4597bf503fbe6f723, type: 3}
     key: zip
   XObstacleOffset: 0
-  YObstacleOffset: 2
+  YObstacleOffset: 20
   ZObstacleOffset: 0
   seed: 1
 --- !u!1 &848583853

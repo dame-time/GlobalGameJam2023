@@ -29,7 +29,10 @@ namespace Generator.Terrain
 
         private List<TileStatus> generatedTiles;
 
-        public List<TileStatus> GeneratedTiles => generatedTiles;
+        public List<TileStatus> GeneratedTiles {
+            get { return generatedTiles; }
+            set { generatedTiles = value; }
+        }
 
         private void Start() {
             gameManager = FindObjectOfType<GameManager>();
