@@ -25,6 +25,8 @@ namespace Generator.Terrain
     {
         [SerializeField] private List<Tile> tiles;
 
+        private Vector3 startTilePosition;
+
         private GameManager gameManager;
 
         private List<TileStatus> generatedTiles;
@@ -32,6 +34,10 @@ namespace Generator.Terrain
         public List<TileStatus> GeneratedTiles {
             get { return generatedTiles; }
             set { generatedTiles = value; }
+        }
+
+        public Vector3 StartTilePosition {
+            get { return startTilePosition; }
         }
 
         private void Start() {
@@ -56,6 +62,7 @@ namespace Generator.Terrain
             if (path.Count > 0 && path[path.Count - 1] != '!')
                 path.Add('!');
 
+            float cachedXStep = 0.0f;
             for (int i = 0; i < path.Count; i++)
             {
                 var tileToGenerate = tiles.Where(e => e.key.Contains(path[i])).ToList().First().tile;
@@ -64,11 +71,14 @@ namespace Generator.Terrain
                 if (tileToGenerate.GetComponent<BoxCollider>())
                     xStep = tileToGenerate.GetComponent<BoxCollider>().size.x;
 
-                //Debug.Log(xStep);
-
                 var generatedTile = Instantiate(tileToGenerate, new Vector3(i * xStep, 0, 0), tileToGenerate.transform.rotation);
                 if (generatedTile.GetComponent<BoxCollider>())
-                    generatedTile.transform.position = new Vector3(i * generatedTile.GetComponent<BoxCollider>().size.x * generatedTile.transform.localScale.x, 0, 0);
+                    generatedTile.transform.position = new Vector3(cachedXStep + (xStep * generatedTile.transform.localScale.x)/2, tileToGenerate.transform.position.y, tileToGenerate.transform.position.z);
+
+                if (i == 0)
+                    GameManager.Instance.PlayerStartingPosition = generatedTile.transform.position;
+
+                cachedXStep += xStep * generatedTile.transform.localScale.x;
                 generatedTiles.Add(new TileStatus() { isBusy = false, tile = generatedTile });
             }
 

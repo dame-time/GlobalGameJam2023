@@ -1600,15 +1600,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiles:
-  - tile: {fileID: 5607032433979669505, guid: 681c3b7140d334e2490d80b0cb33bfb8, type: 3}
+  - tile: {fileID: 8713081427913166456, guid: a2b69a155fd1946fbb88b7dc77424607, type: 3}
     key: '*'
   - tile: {fileID: 5607032433979669505, guid: 681c3b7140d334e2490d80b0cb33bfb8, type: 3}
     key: A
-  - tile: {fileID: 478005329138354399, guid: 0509b2d47faa34f60a07c631e40d84e9, type: 3}
+  - tile: {fileID: 6735274029494312289, guid: aa4ddb519702241559f92fd15e5f9e1d, type: 3}
     key: B
-  - tile: {fileID: 478005329138354399, guid: dd53db3074dc24a279a3dee45ba56781, type: 3}
+  - tile: {fileID: 3457666990530824330, guid: 1485e9e421ddd4995b81770e9b5914ba, type: 3}
     key: C
-  - tile: {fileID: 5607032433979669505, guid: 681c3b7140d334e2490d80b0cb33bfb8, type: 3}
+  - tile: {fileID: 5607032433979669505, guid: 4fd4dd7932cbe4e92a995ae88fce640a, type: 3}
+    key: E
+  - tile: {fileID: 5607032433979669505, guid: 268763e4df3ea42c0b21cf2648ad7e57, type: 3}
+    key: F
+  - tile: {fileID: 3457666990530824330, guid: f48ae6456894b433cbb1facf27d6f7af, type: 3}
+    key: G
+  - tile: {fileID: 8713081427913166456, guid: f82c7f603e37047139b4d4fa04d5c29b, type: 3}
     key: '!'
 --- !u!4 &847616713
 Transform:
@@ -2430,7 +2436,7 @@ MonoBehaviour:
   maxPathLength: 50
   minPathLength: 20
   playerPrefab: {fileID: 288881891666282203, guid: 8d18fbe4fa103a246b1e20a3f54f93ea, type: 3}
-  playerStartingPosition: {x: 2, y: 8, z: 0}
+  playerYOffset: 8
   cinemachineXOffset: 5
   cinemachineYOffset: 1
   pauseMenuButtons: {fileID: 692418355}
