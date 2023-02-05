@@ -16,11 +16,11 @@ namespace Core
         [SerializeField] private int minPathLength = 20;
 
         [SerializeField] private GameObject playerPrefab;
-        [SerializeField] private Vector3 playerStartingPosition;
+        [SerializeField] private float playerYOffset = 3.0f;
 
         [SerializeField] private float cinemachineXOffset = 1.5f;
         [SerializeField] private float cinemachineYOffset = 1.5f;
-        
+
         [SerializeField] private PauseMenuButtons pauseMenuButtons;
 
         private UI uiObject;
@@ -36,14 +36,17 @@ namespace Core
 
         private CinemachineVirtualCamera virtualCamera;
 
+        private Vector3 playerStartingPosition;
 
         public int CurrentLevel => currentLevel;
         public string CurrentFolder => currentFolder;
         public List<string> DefaultPaths => defaultPaths;
 
         public GameObject PlayerPrefab => playerPrefab;
-        public Vector3 PlayerStartingPosition => playerStartingPosition;
-
+        public Vector3 PlayerStartingPosition {
+            get { return playerStartingPosition; }
+            set { playerStartingPosition = value; }
+        }
         public GameObject Player => player;
 
         private void Awake() 
@@ -133,6 +136,8 @@ namespace Core
 
         public void LoadPlayer() 
         {
+            playerStartingPosition = new Vector3(playerStartingPosition.x, playerStartingPosition.y + playerYOffset, playerStartingPosition.z);
+            
             player = Instantiate(playerPrefab, playerStartingPosition, Quaternion.identity);
             playerCamera = new GameObject("Player Camera");
             playerCamera.transform.position = Camera.main.transform.position;
