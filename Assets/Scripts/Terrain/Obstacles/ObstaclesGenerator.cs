@@ -69,6 +69,12 @@ namespace Generator.Obstacles
                     //obstacle.transform.parent = obstacleHolder.transform;
                     obstacle.transform.position = obstaclePosition;
                     obstacle.transform.localScale = obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle.transform.localScale;
+
+                    DestroyFile destroyFile = obstacle.GetComponent<DestroyFile>();
+                    if(destroyFile)
+                    {
+                        destroyFile.SetPath(file);
+                    }
                 }
                 else 
                 {
