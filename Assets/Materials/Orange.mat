@@ -218,7 +218,7 @@ Material:
     - _StepOffset: 0
     - _TweakHighColorOnShadow: 0
     - _TweakMatCapOnShadow: 0
-    - _Tweak_HighColorMaskLevel: 0
+    - _Tweak_HighColorMaskLevel: -0.07
     - _Tweak_LightDirection_MaskLevel: 0
     - _Tweak_MatCapUV: 0
     - _Tweak_MatcapMaskLevel: 0
@@ -233,7 +233,7 @@ Material:
     - _utsTechnique: 0
     - _utsVersion: 2.09
     m_Colors:
-    - _1st_ShadeColor: {r: 0.6792453, g: 0.40094554, b: 0.28451404, a: 1}
+    - _1st_ShadeColor: {r: 0.6886792, g: 0.32610905, b: 0.17801704, a: 1}
     - _2nd_ShadeColor: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 0.57254905, g: 0.1882353, b: 0.02745098, a: 1}
@@ -241,7 +241,7 @@ Material:
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _HighColor: {r: 0.6415094, g: 0.3445359, b: 0.22029188, a: 1}
+    - _HighColor: {r: 0.38679248, g: 0.13360693, b: 0.02700248, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
     - _RimLightColor: {r: 0.46226418, g: 0.4285469, b: 0.36370596, a: 1}
