@@ -5,6 +5,7 @@ using Core.SceneManagement;
 using Core.UserInterface;
 using Patterns;
 using UnityEngine;
+using UserInterface.Buttons;
 using Utils;
 
 namespace Core 
@@ -19,6 +20,8 @@ namespace Core
 
         [SerializeField] private float cinemachineXOffset = 1.5f;
         [SerializeField] private float cinemachineYOffset = 1.5f;
+        
+        [SerializeField] private PauseMenuButtons pauseMenuButtons;
 
         private UI uiObject;
 
@@ -32,6 +35,7 @@ namespace Core
         private GameObject playerCamera;
 
         private CinemachineVirtualCamera virtualCamera;
+
 
         public int CurrentLevel => currentLevel;
         public string CurrentFolder => currentFolder;
@@ -62,6 +66,17 @@ namespace Core
 
             uiObject = FindObjectOfType<UI>();
             uiObject.SetPathText(FileSystem.FileSystemReader.GetPathFromFolderDepth(currentLevel));
+        }
+
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                pauseMenuButtons.gameObject.SetActive(!pauseMenuButtons.gameObject.activeSelf);
+                if (pauseMenuButtons.gameObject.activeSelf)
+                    Time.timeScale = 0;
+                else
+                    Time.timeScale = 1;
+            }
         }
 
         private void PrecomputePathsWhereConfigDoesntExist()

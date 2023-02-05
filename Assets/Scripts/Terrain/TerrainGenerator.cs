@@ -57,7 +57,15 @@ namespace Generator.Terrain
             {
                 var tileToGenerate = tiles.Where(e => e.key.Contains(path[i])).ToList().First().tile;
 
-                var generatedTile = Instantiate(tileToGenerate, new Vector3(i * 5, 0, 0), tileToGenerate.transform.rotation);
+                var xStep = 5.0f;
+                if (tileToGenerate.GetComponent<BoxCollider>())
+                    xStep = tileToGenerate.GetComponent<BoxCollider>().size.x;
+
+                Debug.Log(xStep);
+
+                var generatedTile = Instantiate(tileToGenerate, new Vector3(i * xStep, 0, 0), tileToGenerate.transform.rotation);
+                if (generatedTile.GetComponent<BoxCollider>())
+                    generatedTile.transform.position = new Vector3(i * generatedTile.GetComponent<BoxCollider>().size.x * generatedTile.transform.localScale.x, 0, 0);
                 generatedTiles.Add(new TileStatus() { isBusy = false, tile = generatedTile });
             }
 

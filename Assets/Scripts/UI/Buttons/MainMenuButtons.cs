@@ -7,7 +7,7 @@ namespace UserInterface.Buttons
 {
     public class MainMenuButtons : MonoBehaviour
     {
-        public void StartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        public void StartGame() => StartCoroutine(LevelTransitionEffect.instance.StartTransition(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1)));
 
         public void Settings() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 

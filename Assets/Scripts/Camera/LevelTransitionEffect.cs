@@ -36,13 +36,8 @@ public class LevelTransitionEffect : PostProcessCamera
         yield return sequence.Append(DOTween.To(() => progressTransition, x => progressTransition = x, 1, time))
                 .AppendCallback(callback)
                 .Append(DOTween.To(() => progressTransition, x => progressTransition = x, 0, time))
-                .AppendCallback(() => 
-                { 
-                    if(destroyAtEnd)
-                    {
-                        Destroy(gameObject);
-                    }
-                }).WaitForCompletion();
+
+                .WaitForCompletion();
     }
 
     protected override void OnRenderImage(RenderTexture source, RenderTexture destination)
