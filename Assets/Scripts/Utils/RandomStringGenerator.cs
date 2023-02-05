@@ -8,7 +8,7 @@ namespace Utils
     public sealed class RandomStringGenerator : MonoBehaviour
     {
         // private static string[] characters = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-        private static string[] characters = new string[] { "A", "B", "C"};
+        private static string[] characters = new string[] { "A", "B", "C", "D", "E", "F", "G", "H" };
 
         public static string GenerateRandomString(int length)
         {
