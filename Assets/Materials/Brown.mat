@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gray
+  m_Name: Brown
   m_Shader: {fileID: 4800000, guid: 345def18d0906d544b7d12b050937392, type: 3}
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
@@ -156,16 +156,16 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HighColor_Power: 0
+    - _HighColor_Power: 0.419
     - _Inverse_Clipping: 0
     - _Inverse_MatcapMask: 0
     - _Inverse_Z_Axis_BLD: 1
     - _IsBaseMapAlphaAsClippingMask: 0
     - _Is_BLD: 0
     - _Is_BakedNormal: 0
-    - _Is_BlendAddToHiColor: 0
+    - _Is_BlendAddToHiColor: 1
     - _Is_BlendAddToMatCap: 1
-    - _Is_BlendBaseColor: 1
+    - _Is_BlendBaseColor: 0
     - _Is_ColorShift: 0
     - _Is_Filter_HiCutPointLightColor: 1
     - _Is_Filter_LightColor: 0
@@ -189,7 +189,7 @@ Material:
     - _Is_UseTweakMatCapOnShadow: 0
     - _Is_ViewCoord_Scroll: 0
     - _Is_ViewShift: 0
-    - _LightDirection_MaskOn: 1
+    - _LightDirection_MaskOn: 0
     - _MatCap: 0
     - _Metallic: 0
     - _Mode: 0
@@ -199,11 +199,11 @@ Material:
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
-    - _Outline_Width: 2.13
+    - _Outline_Width: 0.2
     - _Parallax: 0.02
     - _RimLight: 1
-    - _RimLight_FeatherOff: 1
-    - _RimLight_InsideMask: 0.052
+    - _RimLight_FeatherOff: 0
+    - _RimLight_InsideMask: 0.0001
     - _RimLight_Power: 0.1
     - _Rotate_EmissiveUV: 0
     - _Rotate_MatCapUV: 0
@@ -229,21 +229,21 @@ Material:
     - _Use_1stAs2nd: 0
     - _Use_BaseAs1st: 0
     - _ZWrite: 1
-    - _simpleUI: 2
+    - _simpleUI: 0
     - _utsTechnique: 0
     - _utsVersion: 2.09
     m_Colors:
-    - _1st_ShadeColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    - _1st_ShadeColor: {r: 0.2830189, g: 0.26054883, b: 0.21733715, a: 1}
     - _2nd_ShadeColor: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 1, g: 0.7176471, b: 0.09803922, a: 1}
-    - _Color: {r: 1, g: 0.7176471, b: 0.09803919, a: 1}
+    - _BaseColor: {r: 0.1882353, g: 0.13725491, b: 0.039215688, a: 1}
+    - _Color: {r: 0.18823525, g: 0.13725486, b: 0.039215688, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _HighColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HighColor: {r: 0.3584906, g: 0.25945178, b: 0.06899251, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _RimLightColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+    - _RimLightColor: {r: 0.46226418, g: 0.4285469, b: 0.36370596, a: 1}
     - _ViewShift: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
