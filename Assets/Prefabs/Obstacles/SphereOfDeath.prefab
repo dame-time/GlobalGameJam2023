@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 396900834}
   - component: {fileID: 396900836}
   - component: {fileID: 8846867692192762158}
-  - component: {fileID: 4959047915459074817}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -47,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000059176236, y: -0.00027673692}
+  m_Offset: {x: -0.036033154, y: -0.017121494}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.020830154, y: 0.020990085}
+  m_Size: {x: 2.0616841, y: 1.9839762}
   m_EdgeRadius: 0
 --- !u!114 &8846867692192762158
 MonoBehaviour:
@@ -72,22 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe18dc22842d5e4097d863a20d5d90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &4959047915459074817
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396900833}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &4575141967413024842
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,8 +80,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5894763592793453696}
-  - component: {fileID: 7001774880085206304}
   - component: {fileID: 3439788211673324761}
+  - component: {fileID: 929740272380700811}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -121,22 +104,6 @@ Transform:
   m_Father: {fileID: 8684383913121849571}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7001774880085206304
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4575141967413024842}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!114 &3439788211673324761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +117,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 100
+  isCollided: 0
+  startPos: {x: 0, y: 0, z: 0}
+--- !u!61 &929740272380700811
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575141967413024842}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -12.495262, y: 1.0432625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 27.225594, y: 8.945112}
+  m_EdgeRadius: 0
 --- !u!1 &8684383913121849567
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +156,7 @@ GameObject:
   - component: {fileID: 8684383913121849571}
   - component: {fileID: 8684383913121849570}
   - component: {fileID: 8684383913121849569}
-  - component: {fileID: 1512407656}
+  - component: {fileID: 7660510730032849777}
   m_Layer: 0
   m_Name: SphereOfDeath
   m_TagString: Untagged
@@ -177,8 +172,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8684383913121849567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.02, y: 5.51, z: -0.033783}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 396900834}
@@ -236,7 +231,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!50 &1512407656
+--- !u!50 &7660510730032849777
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

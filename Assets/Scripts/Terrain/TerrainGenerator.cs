@@ -64,7 +64,7 @@ namespace Generator.Terrain
                 if (tileToGenerate.GetComponent<BoxCollider>())
                     xStep = tileToGenerate.GetComponent<BoxCollider>().size.x;
 
-                Debug.Log(xStep);
+                //Debug.Log(xStep);
 
                 var generatedTile = Instantiate(tileToGenerate, new Vector3(i * xStep, 0, 0), tileToGenerate.transform.rotation);
                 if (generatedTile.GetComponent<BoxCollider>())

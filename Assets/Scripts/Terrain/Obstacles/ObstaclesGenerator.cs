@@ -60,18 +60,19 @@ namespace Generator.Obstacles
                 var randomTile = freeTiles[index];
 
                 var obstacleHolder = randomTile.tile;
-                var obstaclePosition = ComputeObstaclePosition(obstacleHolder);
+                var obstaclePosition = ComputeObstaclePosition(obstacleHolder, splittedFile[splittedFile.Length - 1]);
 
                 var obstacleIsContained = obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().Count > 0;
                 if (obstacleIsContained)
                 {
                     var obstacle = Instantiate(obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle, obstaclePosition, Quaternion.identity);
-                    obstacle.transform.parent = obstacleHolder.transform;
+                    //obstacle.transform.parent = obstacleHolder.transform;
+                    obstacle.transform.position = obstaclePosition;
                     obstacle.transform.localScale = obstacles.Where(e => e.key.Contains(splittedFile[splittedFile.Length - 1])).ToList().First().obstacle.transform.localScale;
                 }
                 else 
                 {
-                    Debug.Log(splittedFile[splittedFile.Length - 1]);
+                    //Debug.Log(splittedFile[splittedFile.Length - 1]);
                 }
 
                 for (int k = 0; k < terrainGenerator.GeneratedTiles.Count; k++)
@@ -89,12 +90,21 @@ namespace Generator.Obstacles
             }
         }
     
-        private Vector3 ComputeObstaclePosition(GameObject tile) 
+        private Vector3 ComputeObstaclePosition(GameObject tile, string file) 
         {
             var tilePosition = tile.transform.position;
             var tileScale = tile.transform.localScale;
 
-            var obstaclePosition = new Vector3(tile.transform.position.x + XObstacleOffset, YObstacleOffset, ZObstacleOffset);
+            if(file == "txt")
+            {
+                YObstacleOffset = 6f;
+            }
+            else if(file == "meta")
+            {
+                YObstacleOffset = 6f;
+            }
+
+            var obstaclePosition = new Vector3(tile.transform.position.x + XObstacleOffset, YObstacleOffset, 0);
 
             return obstaclePosition;
         }
