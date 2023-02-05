@@ -109,6 +109,10 @@ namespace Generator.Obstacles
             {
                 YObstacleOffset = 6f;
             }
+            else if(file == "pdf")
+            {
+                YObstacleOffset = 7.5f;
+            }
 
             var obstaclePosition = new Vector3(tile.transform.position.x + XObstacleOffset, YObstacleOffset, 0);
 
